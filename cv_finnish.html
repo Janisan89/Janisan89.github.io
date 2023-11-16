@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <!-- ... head elements ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jani Johanssonin Interaktiivinen Ansioluettelo</title>
+    <style>
+        #gameArea {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #000;
+    position: relative;
+    }
+
+    #cube {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        position: absolute;
+        left: 0;
+    }
+    </style>
+</head>
+<body>
+    <div id="gameArea">
+        <div id="cube"></div>
+    </div>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const cube = document.getElementById('cube');
+            let left = cube.offsetLeft;
+
+            if (event.key === 'a' || event.key === 'A') { // Move left
+                left -= 10;
+            } else if (event.key === 'd' || event.key === 'D') { // Move right
+                left += 10;
+            }
+
+            // Update cube position
+            cube.style.left = left + 'px';
+        });
+    </script>
+</body>
+</html>
